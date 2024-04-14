@@ -1,5 +1,6 @@
 ﻿using BaristaStop.Data.Data.Abstractions;
 using BaristaStop.Data.Repositories.Abstractions;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,10 @@ namespace BaristaStop.Data.Repositories
 {
     public class Repository<T> : IRepository<T> where T : BaseEntity
     {
-        private readonly DbContext _context;
+        private readonly ApplicationDbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public Repository(DbContext context)
+        public Repository(ApplicationDbContext context)
         {
             _context = context;
             _dbSet = _context.Set<T>();
