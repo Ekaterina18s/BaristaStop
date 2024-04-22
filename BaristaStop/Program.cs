@@ -22,6 +22,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IBeverageService, BeverageService>();
 
 builder.Services.AddControllersWithViews();
 
